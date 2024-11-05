@@ -137,7 +137,6 @@ Description: This page displays the gallery of images, video, and audio for The 
     <div class="main-content">
         <h2 style="text-align: center; font-size: 2em; color: #333;">Gallery</h2>
 
-        
         <!-- Image Gallery -->
         <div class="gallery-container">
             <img src="BirthdayParties.jpg" alt="Event Space Image 1" class="thumbnail" onclick="openModal('BirthdayParties.jpg')">
@@ -148,7 +147,7 @@ Description: This page displays the gallery of images, video, and audio for The 
         <!-- Modal for Enlarged Images -->
         <div id="myModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="modalImage">
+            <img class="modal-content" id="modalImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Enlarged event image">
         </div>
 
         <!-- Video Section -->
@@ -188,14 +187,17 @@ Description: This page displays the gallery of images, video, and audio for The 
     <!-- JavaScript for modal functionality -->
     <script>
         function openModal(imageSrc) {
-            document.getElementById("modalImage").src = imageSrc;
+            const modalImage = document.getElementById("modalImage");
+            modalImage.src = imageSrc;  // Set the src attribute when opening the modal
+            modalImage.alt = "Enlarged view of " + imageSrc;
             document.getElementById("myModal").style.display = "flex";
         }
         function closeModal() {
+            const modalImage = document.getElementById("modalImage");
+            modalImage.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";  // Reset to 1x1 transparent GIF
             document.getElementById("myModal").style.display = "none";
         }
     </script>
     
 </body>
 </html>
-
